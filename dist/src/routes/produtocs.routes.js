@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const atualizaAlgunsDadosVeiculo_controller_1 = __importDefault(require("../controller/atualizaAlgunsDadosVeiculo.controller"));
+const atualizaQuaisquerDadosVeiculo_controller_1 = __importDefault(require("../controller/atualizaQuaisquerDadosVeiculo.controller"));
+const createVeiculo_controller_1 = __importDefault(require("../controller/createVeiculo.controller"));
+const deletaVeiculo_controller_1 = __importDefault(require("../controller/deletaVeiculo.controller"));
+const findByIdVeiculo_controller_1 = __importDefault(require("../controller/findByIdVeiculo.controller"));
+const listaTodosVeiculos_controller_1 = __importDefault(require("../controller/listaTodosVeiculos.controller"));
+const ProductsRoutes = (0, express_1.Router)();
+ProductsRoutes.get("/", listaTodosVeiculos_controller_1.default);
+ProductsRoutes.get("/find");
+ProductsRoutes.get("/:id", findByIdVeiculo_controller_1.default);
+ProductsRoutes.post("/", createVeiculo_controller_1.default);
+ProductsRoutes.put("/:id", atualizaQuaisquerDadosVeiculo_controller_1.default);
+ProductsRoutes.patch("/:id", atualizaAlgunsDadosVeiculo_controller_1.default);
+ProductsRoutes.delete("/:id", deletaVeiculo_controller_1.default);
+exports.default = ProductsRoutes;
