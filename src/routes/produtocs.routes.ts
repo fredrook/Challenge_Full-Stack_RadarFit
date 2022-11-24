@@ -4,12 +4,13 @@ import UpdatedAnyDadosVeiculoController from "../controller/atualizaQuaisquerDad
 import CreateVeicleController from "../controller/createVeiculo.controller";
 import DeleteVeiculoController from "../controller/deletaVeiculo.controller";
 import ListByIdVeicleController from "../controller/findByIdVeiculo.controller";
+import FindVeicleController from "../controller/findVeiculo.controller";
 import ListaTodosVeiculosController from "../controller/listaTodosVeiculos.controller";
 
 const ProductsRoutes = Router()
 
 ProductsRoutes.get("/", ListaTodosVeiculosController);
-ProductsRoutes.get("/find")
+ProductsRoutes.get("/find", FindVeicleController)
 ProductsRoutes.get("/:id", ListByIdVeicleController);
 ProductsRoutes.post("/", CreateVeicleController);
 ProductsRoutes.put("/:id", UpdatedAnyDadosVeiculoController);
