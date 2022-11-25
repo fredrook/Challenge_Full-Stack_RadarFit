@@ -1,9 +1,9 @@
 import AppDataSource from "../data-source"
 import Products from "../entities/product.entity"
-import AppError from "../errors/appError"
+import {AppError} from "../errors/appError"
 import { IProductsUpdated } from "../interfaces/produtos/IProductsUpdated"
 
-const UpdatedTargetDadosVeiculoService = async ( produtos: IProductsUpdated, prodId: string) => {
+const PatchUpdateProductsByIdService = async ( produtos: IProductsUpdated, prodId: string) => {
   const productsRepository = AppDataSource.getRepository(Products)
 
   const findProduct = await productsRepository.findOneBy({ id: prodId })
@@ -18,4 +18,4 @@ const UpdatedTargetDadosVeiculoService = async ( produtos: IProductsUpdated, pro
 
   return updatedProduct
 }
-export default UpdatedTargetDadosVeiculoService;
+export default PatchUpdateProductsByIdService;

@@ -1,9 +1,9 @@
 import AppDataSource from "../data-source"
 import Products from "../entities/product.entity"
-import AppError from "../errors/appError"
+import {AppError} from "../errors/appError"
 import { IProductsUpdated } from "../interfaces/produtos/IProductsUpdated"
 
-const UpdateAnyDadosVeiculoService = async ({ produto, valor, descricao}: IProductsUpdated, prodId: string) => {
+const PutUpdateAnyDataProductsService = async ({ produto, valor, descricao}: IProductsUpdated, prodId: string) => {
   const productsRepository = AppDataSource.getRepository(Products)
 
   const findProduct = await productsRepository.findOneBy({ id: prodId })
@@ -22,4 +22,4 @@ const UpdateAnyDadosVeiculoService = async ({ produto, valor, descricao}: IProdu
 
   return updatedProduct
 }
-export default UpdateAnyDadosVeiculoService;
+export default PutUpdateAnyDataProductsService;

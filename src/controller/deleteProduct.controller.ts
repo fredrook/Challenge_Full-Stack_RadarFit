@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import DeleteVeiculoService from "../services/deletaVeiculo.service";
+import DeleteProductService from "../services/deleteProduct.service";
 
-const DeleteVeiculoController = async (request: Request, response: Response) => {
+const DeleteProductController = async (request: Request, response: Response) => {
     try {
         const id: string = request.params.id;
 
-        const veiculo =  await DeleteVeiculoService(id);
+        const veiculo =  await DeleteProductService(id);
         
         return response.status(204).json({message: "Produto Deletado!"});
 
@@ -21,4 +21,4 @@ const DeleteVeiculoController = async (request: Request, response: Response) => 
     }
 }
 
-export default DeleteVeiculoController;
+export default DeleteProductController;

@@ -1,8 +1,8 @@
 import AppDataSource from "../data-source";
 import Products from "../entities/product.entity";
-import AppError from "../errors/appError";
+import {AppError} from "../errors/appError";
 
-const ListByIdVeicleService = async (id: string) => {
+const GetProductByIdService = async (id: string) => {
   const productRepository = AppDataSource.getRepository(Products);
 
   const product = await productRepository.findOne({
@@ -18,4 +18,4 @@ const ListByIdVeicleService = async (id: string) => {
   return product;
 };
 
-export default ListByIdVeicleService;
+export default GetProductByIdService;
