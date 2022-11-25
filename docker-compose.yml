@@ -1,8 +1,8 @@
 version: "3.9"
 
 services:
-  api:
-    container_name: api
+  radar_fit:
+    container_name: radar_fit
     build: .
     ports:
       - 3000:3000
@@ -16,7 +16,7 @@ services:
 
   frc_test_backend:
     container_name: frc_test_backend
-    image: postgres:14-alpine
+    image: radarfit
     ports:
       - 5431:5432
     env_file:

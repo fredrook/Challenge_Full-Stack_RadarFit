@@ -1,9 +1,9 @@
 import AppDataSource from "../data-source"
 import Products from "../entities/product.entity"
-import AppError from "../errors/appError"
+import {AppError} from "../errors/appError"
 import { IProducts } from "../interfaces/produtos/IProducts"
 
-const CreateVeicleService = async ({ produto, valor, descricao }: IProducts) => {
+const PostCreateProductService = async ({ produto, valor, descricao }: IProducts) => {
   const productRepository = AppDataSource.getRepository(Products)
 
   const products = await productRepository.find()
@@ -11,7 +11,7 @@ const CreateVeicleService = async ({ produto, valor, descricao }: IProducts) => 
   const productAlredyExists = products.find((prod) => prod.produto === produto)
 
   if (productAlredyExists) {
-    throw new AppError("Email already exist")
+    throw new AppError("Produtct already exist")
   }
 
   const veiculo = productRepository.create({
@@ -25,4 +25,4 @@ const CreateVeicleService = async ({ produto, valor, descricao }: IProducts) => 
   return veiculo
 }
 
-export default CreateVeicleService;
+export default PostCreateProductService;

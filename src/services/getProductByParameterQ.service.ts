@@ -1,8 +1,9 @@
 import AppDataSource from "../data-source";
 import Products from "../entities/product.entity";
-import AppError from "../errors/appError";
+import {AppError} from "../errors/appError";
+import { IProducts } from "../interfaces/produtos/IProducts";
 
-const FindVeicleService = async ( produto: any) => {
+const GetProductByParameterQService = async ( produto: any) => {
   const productRepository = AppDataSource.getRepository(Products);
 
   const targetProduct = await productRepository.find({ where: {
@@ -16,4 +17,4 @@ const FindVeicleService = async ( produto: any) => {
   return targetProduct;
 };
 
-export default FindVeicleService;
+export default GetProductByParameterQService;

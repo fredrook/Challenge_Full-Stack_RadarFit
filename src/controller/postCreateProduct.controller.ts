@@ -3,10 +3,10 @@ import { instanceToPlain } from "class-transformer";
 import { IProducts } from "../interfaces/produtos/IProducts";
 import { ValidationError } from "yup";
 import schema from "../validations/createProduct.schema";
-import AppError from "../errors/appError";
-import CreateVeicleService from "../services/createVeiculo.service";
+import {AppError} from "../errors/appError";
+import PostCreateProductService from "../services/postCreateProduct.service";
 
-const CreateVeicleController = async (req: Request, res: Response) => {
+const PostCreateProductsController = async (req: Request, res: Response) => {
     try {
       await schema.validate(req.body)
     } catch (error) {
@@ -15,11 +15,11 @@ const CreateVeicleController = async (req: Request, res: Response) => {
       }
     }
   
-    const createVeicle: IProducts = req.body
+    const createProduct: IProducts = req.body
   
-    const newVeicle = await CreateVeicleService(createVeicle)
+    const newProduct = await PostCreateProductService(createProduct)
   
-    return res.status(201).json(instanceToPlain(newVeicle))
+    return res.status(201).json(instanceToPlain(newProduct))
   }
   
-  export default CreateVeicleController
+  export default PostCreateProductsController
